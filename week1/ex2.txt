@@ -1,0 +1,158 @@
+    1  history
+    2  man sudo_root
+    3  docker
+    4  ls - 
+    5  ls/
+    6  cd /
+    7  cd C:/Users/Aidar/
+    8  cd home
+    9  mkdir week1
+   10  mkdir /week1
+   11  ls -
+   12  ls /
+   13  ls -1
+   14  cd ~
+   15  ~/week1
+   16  mkdir ~/week1
+   17  cd /home
+   18  ls /
+   19  `cd
+   20  cd/
+   21  cd /
+   22  ls -1
+   23  cd /home
+   24  mkdir ~/week1
+   25  cd /aidar
+   26  ls /
+   27  cd /aidar
+   28  ls -1
+   29  cd aidar
+   30  mkdir /week1
+   31  mkdir ~/week1
+   32  cd aidar
+   33  cd ~/week1
+   34  ls > ex1.txt
+   35  cd ex1.txt
+   36  ~cd
+   37  ~cd/
+   38  cd home
+   39  cd../
+   40  ls -1
+   41  ~cd
+   42  ~cd/
+   43  cd /
+   44  ~cd
+   45  ~ cd
+   46  ls -1
+   47  cd /usr
+   48  ls -1
+   49  cd /bin
+   50  ls -1
+   51  cd gcc
+   52  ls
+   53  cd gcc
+   54  grep gcc
+   55  cd /usr/bin
+   56  grep gcc
+   57  ls
+   58  cd /usr/bin/gcc
+   59  cd /home
+   60  cd /bin
+   61  ls -1
+   62  .
+   63  . cd
+   64  ls .
+   65  cd ~
+   66  cd ..
+   67  cd `
+   68  cd ~
+   69  1 + 2
+   70  man -k .
+   71  cat /etc/bash.bashrc
+   72  cat /etc/bash.bashrc |less
+   73  less /etc/bash.bashrc
+   74  ls-1
+   75  ls -1
+   76  cd week1
+   77  ls -1
+   78  less ex1.txt 
+   79  ls -1
+   80  ls -1 ex1.txt
+   81  ls -1 Makefile
+   82  ls -l ex1.txt
+   83  ~cd
+   84  cd /
+   85  ~ cd
+   86  cd ~
+   87  cd bin
+   88  cd /bin
+   89  ls -1
+   90  ls grep gcc
+   91  cd /
+   92  ls /usr/bin | sort -r | grep gcc > lll.txt
+   93  cd ~
+   94  ls /usr/bin | sort -r | grep gcc > lll.txt
+   95  cat ls
+   96  ls -1
+   97  cd /
+   98  ls
+   99  cd home
+  100  ls
+  101  cd /home
+  102  ls
+  103  cd aidar
+  104  cd -
+  105  ls -1
+  106  cd /aidar
+  107  cd aidar
+  108  ls -1
+  109  cat lll.txt > week1/ex1.txt
+  110  cd week1
+  111  cd -
+  112  cd week1
+  113  ls
+  114  cat ex1.txt
+  115  cd ~
+  116  app get gcc
+  117  sudo apt install build-essential
+  118  apt-get 
+  119  apt-get gcc
+  120  /usr/bin
+  121  cd /
+  122  /usr/bin
+  123  cd /usr/bin
+  124  ls
+  125  apt-get gcc
+  126  apt-get update
+  127  ls -1
+  128  gcc -v
+  129  sudo apt install gcc
+  130  sudo apt-get update
+  131  sudo apt install gcc
+  132  ls -1
+  133  ls
+  134  ls  sort -r | grep gcc > lll.txt
+  135  ls | sort -r | grep gcc > lll.txt
+  136  ~ cd
+  137  cd 
+  138  cd /
+  139  ls /usr/bin | sort -r | grep gcc > lll.txt
+  140  ls /usr/bin/ | sort -r | grep gcc > lll.txt
+  141  cd ~
+  142  ls /usr/bin | sort -r | grep gcc > lll.txt
+  143  cd /usr/bin
+  144  ls
+  145  cd ~
+  146  ls
+  147  cat lll.txt > week1/ex1.txt
+  148  cd week1
+  149  ls
+  150  cat ex1.txt
+  151  ~cd
+  152  cd ~
+  153  git -v
+  154  git -V
+  155  git -v
+  156  git
+  157  cd week1
+  158  history > ex2.txt
