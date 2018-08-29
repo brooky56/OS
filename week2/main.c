@@ -94,7 +94,7 @@ int main()
 {
  //exer1();
  //exer2();
-	 exer3();
+ // exer3();
  //exer4();
  return 0;
 }
