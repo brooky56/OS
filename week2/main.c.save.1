@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <limits.h>
+#include <float.h>
+void exer1()
+{
+int i = INT_MAX;
+float f = FLT_MAX;
+double d = DBL_MAX;
+
+printf("INT: %d \n",sizeof(int));
+printf("%d \n",i);
+printf("FLOAT: %d \n",sizeof(float));
+printf("%f \n", f);
+printf("DOUBLE: %d \n",sizeof(double));
+printf("%lf \n",d);
+}
+void exer2()
+{
+ char input[256];
+ fgets(input,256, stdin);
+ char output[strlen(input)];
+ int k = 0;
+ for(int i = strlen(input)-1; i>=0; i--){
+	output[k] = input[i];
+	k++;
+ }
+ output[k] = "\0";
+ printf("%s", output);
+
+}
+void exer3()
+{
+ int h = sscanf();
+ for(int i = 1; i<=2*h-1;i++){
+	for()
+{
+	}
+ }
+}
+int main()
+{
+ //exer1();
+ //exer2();
+ return 0;
+}
