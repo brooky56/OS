@@ -154,10 +154,45 @@ void exer3()
 	}
 }
 
+void quick_sort(int *arr, int n)
+{
+	if(n < 2) return;
+
+	int pivot = arr[n/2];
+
+	int i,j;
+	for(i = 0; j = n-1; i++, j--)
+	{
+		while(arr[i] < pivot) i++;
+		while(arr[j] > pivot) j--;
+
+		if(i>=j) break;
+
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	quick_sort(arr,i);
+	quick_sort(arr+i, n-i);
+}
+
+void exer4()
+{
+	int n;
+	scanf("%d", &n);
+	int input[n];
+	for(int i = 0; i < n; i++)
+		scanf("%d", &input[i]);
+	quick_sort(input, n);
+	for(int j = 0; j < n; j++)
+		printf("%d%s", input[j], j==n ? "\n":" ");
+}
+
 int main()
 {
 	//exer1();
 	//exer2();
 	//exer3();
+	//exer4();
 	return 0;
 }
