@@ -1,0 +1,21 @@
+Run 10 times
+Hello from child process my pid is 164
+Hello from parent process my pid is 163 
+Hello from child process my pid is 166
+Hello from parent process my pid is 165 
+Hello from child process my pid is 168
+Hello from parent process my pid is 167 
+Hello from child process my pid is 170
+Hello from parent process my pid is 169 
+Hello from child process my pid is 172
+Hello from parent process my pid is 171 
+Hello from child process my pid is 174
+Hello from parent process my pid is 173 
+Hello from child process my pid is 176
+Hello from parent process my pid is 175 
+Hello from child process my pid is 178
+Hello from parent process my pid is 177 
+Hello from child process my pid is 180
+Hello from parent process my pid is 179 
+Hello from child process my pid is 182
+Hello from parent process my pid is 181 
