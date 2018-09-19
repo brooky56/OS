@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<pthread.h>
+#include<stdlib.h>
+
+#define Buffer_Limit 100000
+
+int Buffer_Index_Value = 0;
+int *Buffer;
+
+pthread_mutex_t mutex_variable = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t Buffer_Queue_Not_Full = PTHREAD_COND_INITIALIZER;
+pthread_cond_t Buffer_Queue_Not_Empty = PTHREAD_COND_INITIALIZER;
+
+void *Consumer() {
+    while (1) {
+        pthread_mutex_lock(&mutex_variable);
+        if (Buffer_Index_Value == -1) {
+            pthread_cond_wait(&Buffer_Queue_Not_Empty, &mutex_variable);
+        }
+        printf("\nConsumer:%d\t", Buffer_Index_Value--);
+        pthread_mutex_unlock(&mutex_variable);
+        pthread_cond_signal(&Buffer_Queue_Not_Full);
+    }
+}
+
+void *Producer() {
+    while (1) {
+        pthread_mutex_lock(&mutex_variable);
+        if (Buffer_Index_Value == Buffer_Limit) {
+            pthread_cond_wait(&Buffer_Queue_Not_Full, &mutex_variable);
+        }
+        Buffer[Buffer_Index_Value++] = 1;
+        printf("\nProducer:%d\t", Buffer_Index_Value);
+        pthread_mutex_unlock(&mutex_variable);
+        pthread_cond_signal(&Buffer_Queue_Not_Empty);
+    }
+}
+
+int main() {
+    // fatal race condition will be when index_value of consumer bigger than index_value of producer
+    // in this case the main idea that if index of consumer become the same as producer consumer should sleep and producer should wake up and begin producing
+    pthread_t producer_thread_id, consumer_thread_id;
+    Buffer= (int *) malloc(sizeof(int) * Buffer_Limit);
+    pthread_create(&producer_thread_id, NULL, Producer, NULL);
+    pthread_create(&consumer_thread_id, NULL, Consumer, NULL);
+    pthread_join(producer_thread_id, NULL);
+    pthread_join(consumer_thread_id, NULL);
+    return 0;
+}
