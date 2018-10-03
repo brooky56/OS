@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+//kostul solution
 int * my_realloc(int *arr, int old_k, int new_k ){
     int *new_arr = malloc(new_k * sizeof(int));
 
@@ -28,6 +29,7 @@ int main() {
 
     	input = my_realloc(input, k1, k2);
 
+	//posle
 	for(int i = 0;i<k2;i++){
 		printf("%d\n",input[i]);
 	}
