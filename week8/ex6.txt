@@ -1,0 +1,8 @@
+Single-level linear paging
+– Single page table contains one entry per virtual page
+per process
+We have 16 bit virtual address
+And 2^3*1024 butes for pages
+One entry per virtual page:
+– 2^16 addressable bytes / 2^13 bytes per page = 2^3 page table entries
+Answer: 2^3 page table entries

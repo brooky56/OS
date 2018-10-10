@@ -1,0 +1,11 @@
+RAM can be represented as a sequence of bytes, each of which has its own unique address, 
+called a physical address. It is these addresses that the processor ultimately uses when communicating with RAM. 
+
+1) The process address space is significantly different from the physical RAM address space.
+
+The point of virtual memory is that each process runs in its own virtual address space. Virtual address space 
+is a real convenient for the process. 2)Firstly, the process creates a sense of exclusivity — because all the address 
+space belongs only to him. 3)Secondly, it is no longer limited by the amount of physical memory — virtual memory can 
+significantly exceed physical memory. As a result, the processes become isolated from each other and do not have the 
+ability (even if desired) to "host" in the address space of the neighbor. 4)Physical memory is allocated as efficiently 
+as possible-it does not depend on the virtual memory allocation of a single process.
