@@ -1,0 +1,15 @@
+First that will decrease our miss ratio is sorted sequence of input.
+
+Before sorting:
+Number of page frames: 10
+Hitrates: 10
+Missrates: 990
+
+After sorting:
+Number of page frames: 10
+Hitrates: 375
+Missrates: 625
+
+Problem of aging we don't how often page is using before.
+Increase miss ratio: when the most not needble page on clock tick is deleted and on 
+the next tick we need our previous page again. 
