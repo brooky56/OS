@@ -1,0 +1,5 @@
+total 0
+5066549581645159 -rw-rw-rw- 1 aidar aidar  0 Oct 24 00:42 ex1_inode.txt
+6473924464781093 lrwxrwxrwx 1 aidar aidar  7 Oct 24 00:40 ex1_link1.txt -> ex1.txt
+5348024558358219 -rw-rw-rw- 2 aidar aidar 16 Oct 24 00:35 ex1_link2.txt
+5348024558358219 -rw-rw-rw- 2 aidar aidar 16 Oct 24 00:35 ex1.txt
