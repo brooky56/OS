@@ -4,28 +4,33 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdlib.h>
-void printdir(char *dir, int depth)
+
+void searchDir(char *dir, int depth)
 {
     DIR *dp;
     struct dirent *entry;
-    struct stat statbuf;
+    struct stat stat;
     if((dp = opendir(dir)) == NULL) {
         fprintf(stderr,"cannot open directory: %s\n", dir);
         return;
     }
     chdir(dir);
     while((entry = readdir(dp)) != NULL) {
-        lstat(entry->d_name,&statbuf);
-        if(S_ISDIR(statbuf.st_mode)) {
-            /* Found a directory, but ignore . and .. */
+        lstat(entry->d_name,&stat);
+        if(S_ISDIR(stat.st_mode)) {
             if(strcmp(".",entry->d_name) == 0 ||
                 strcmp("..",entry->d_name) == 0)
                 continue;
             printf("%*s%s/\n",depth,"",entry->d_name);
-            /* Recurse at a new indent level */
-            printdir(entry->d_name,depth+4);
+		//Recursively going througth directories
+            searchDir(entry->d_name,depth+4);
         }
-        else printf("%*s%s\n",depth,"",entry->d_name);
+        else{
+		//here we check files which have 2 or more hardlinks
+		if(stat.st_nlink >= 2){
+		  printf("%*s%s\n",depth,"",entry->d_name);
+		}
+	}
     }
     chdir("..");
     closedir(dp);
@@ -33,8 +38,7 @@ void printdir(char *dir, int depth)
 
 int main()
 {
-    printf("Directory scan /tmp ");
-    printdir("/home/aidar/labs/week10/tmp",0);
-    printf("done.\n");
+    printf("Directory scan /tmp:\n");
+    searchDir("/home/aidar/labs/week10/tmp",0);
     exit(0);
 }

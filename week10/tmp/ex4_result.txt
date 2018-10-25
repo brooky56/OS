@@ -1,0 +1,3 @@
+Directory scan /tmp:
+file1.txt
+link1
