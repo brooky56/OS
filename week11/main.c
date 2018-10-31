@@ -1,27 +1,28 @@
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
-      #include <sys/mman.h>
-       #include <sys/stat.h>
-       #include <fcntl.h>
-       #include <stdio.h>
-       #include <stdlib.h>
-       #include <unistd.h>
-       #include <string.h>
 
 void exer4(){
 
-	struct stat statbuf;
+	int f1 = open("ex1.txt", O_RDWR);
+ 	struct stat fileStat;
+	int st = fstat(f1,&fileStat);
+	printf("%d\n",fileStat.st_size);
 
-		FILE *f1 = fopen("ex1.txt", "rb");
+        FILE *f_2 = fopen("ex1.memcpy.txt", "w");
+        ftruncate(fileno(f_2), fileStat.st_size);
+        fclose(f_2);
 
-		fseek(f1 , 0 , SEEK_END);                          // устанавливаем позицию в конец файла
-  		long lSize = ftell(f1);                            // получаем размер в байтах
-  		rewind(f1);
-		char *buffer = (char*) malloc(sizeof(char) * lSize);
-		size_t result = fread(buffer, 1, lSize, f1);
-
-		FILE *f2 = fopen("ex1.memcpy.txt","rb");
-		memcpy(f2,buffer,strlen(buffer));
-		fclose(f1);
+	void* map_1 = mmap(0, fileStat.st_size, PROT_READ|PROT_WRITE, MAP_SHARED, f1, 0);
+	close(f1);
+	int f2 = open("ex1.memcpy.txt",O_RDWR);
+	void* map_2 = mmap(0,fileStat.st_size,PROT_WRITE|PROT_READ, MAP_SHARED, f2,0);
+	memcpy(map_2,map_1,fileStat.st_size);
 }
 
 void exer3_1(){
@@ -36,6 +37,24 @@ void exer3_2(){
 	printf("\n");
 }
 
+void exer2(){
+	char buffer[BUFSIZ];
+	FILE *file1 = fopen("ex2.txt", "w");
+	setbuf(file1,buffer);
+	fputs("H",file1);
+	sleep(1);
+	fputs("e",file1);
+	sleep(1);
+	fputs("l",file1);
+	sleep(1);
+	fputs("l", file1);
+	sleep(1);
+	fputs("o", file1);
+	sleep(1);
+	fflush(file1);
+    	fclose(file1);
+}
+
 void exer1(){
 
 	struct stat bufstat;
@@ -48,8 +67,9 @@ void exer1(){
 }
 int main(){
 	//exer1();
+	//exer2();
 	//exer3_1();
 	//exer3_2();
-	exer4();
+	//exer4();
 	return 0;
 }

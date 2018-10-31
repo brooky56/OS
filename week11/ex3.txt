@@ -1,0 +1,11 @@
+Second program: out->Hello
+		     \n
+		     \n
+This happend because when we call fork, we generate first child process, moreover this process inherit buffer mode from parent proces, in this case 
+the created process will be busy executing the same code from exactly the same point as the original process. So we will execute printf("Hello") and then printf("\n")
+twice by two child process.
+
+First program: out->Hello
+		    Hello
+This happend because both created process will print "Hello" and then "\n", the main reason that the both process contain 
+not printed "Hello" and "\n" in their buffer. 
