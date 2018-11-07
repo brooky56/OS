@@ -1,0 +1,33 @@
+with buff size n = 20 bytes
+time command shows as: 
+
+real    0m0.003s
+user    0m0.002s
+sys     0m0.001s
+
+for n = 10
+real	0m0.002s
+user	0m0.003s
+sys	0m0.000s
+
+if put O_SYNC mode for n = 10 we have
+
+real	0m0.002s
+user	0m0.002s
+sys	0m0.000s
+
+O_SYNC provides synchronized I/O file integrity completion, meaning
+       write operations will flush data and all associated metadata to the
+       underlying hardware.
+
+To understand the difference between the two types of completion,
+       consider two pieces of file metadata: the file last modification
+       timestamp (st_mtime) and the file length.  All write operations will
+       update the last file modification timestamp, but only writes that add
+       data to the end of the file will change the file length.  The last
+       modification timestamp is not needed to ensure that a read completes
+       successfully, but the file length is.  Thus, O_DSYNC would only
+       guarantee to flush updates to the file length metadata (whereas
+       O_SYNC would also always flush the last modification timestamp
+       metadata).
+this true info provides for us "Linux manual"
