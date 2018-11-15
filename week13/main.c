@@ -48,6 +48,7 @@ void show() {
                 printf("%d ", avail[j]);
         }
     }
+	printf("\n");
 }
 
 void cal() {
@@ -96,20 +97,22 @@ void cal() {
             flag = 1;
         }
     }
+	FILE *f_ok = fopen("output_ok.txt","w");
+	FILE *f_dead = fopen("output_dl.txt","w");
     if (flag == 1) {
-        printf("\n\nSystem is in Deadlock and the Deadlock process are\n");
+        fprintf(f_dead,"\n\nSystem is in Deadlock and the Deadlock process are\n");
         for (i = 0; i < n; i++) {
-            printf("P%d\t", dead[i]);
+            fprintf(f_dead, "P%d\t", dead[i]);
         }
     } else {
-        printf("\nNo Deadlock Occur");
+        fprintf(f_ok,"No deadlock occurs\n");
     }
 }
 
 
 int main() {
     int i, j;
-    printf("********** Deadlock Detection Algo ************\n");
+    printf("Deadlock Detection\n");
     input();
     show();
     cal();

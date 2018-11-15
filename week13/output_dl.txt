@@ -1,0 +1,4 @@
+
+
+System is in Deadlock and the Deadlock process are
+P0	P1	P2	

@@ -1,0 +1,17 @@
+Deadlock Detection
+Enter the no of Processes       3
+Enter the no of resource instances      4
+Enter the Allocation Matrix
+0 0 1 0
+2 0 0 1
+0 1 2 0
+Enter the Request Matrix
+2 0 0 1
+1 0 1 0
+2 1 0 0
+Enter the available Resources vector
+2 1 0 0
+Process  Request         Allocation      Available
+P1       2 0 0 1         0 0 1 0           2 1 0 0
+P2       1 0 1 0         2 0 0 1
+P3       2 1 0 0         0 1 2 0

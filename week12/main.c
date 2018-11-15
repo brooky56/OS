@@ -39,8 +39,8 @@ void exer2(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
-    //exer1();
-    exer2(argc, argv);
+    exer1();
+    //exer2(argc, argv);
     return 0;
 }
 
